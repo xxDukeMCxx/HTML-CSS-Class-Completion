@@ -190,6 +190,14 @@ export async function activate(context: ExtensionContext): Promise<void> {
         context.subscriptions.push(provideCompletionItemsGenerator(extension, /class=["|']([\w- ]*$)/));
     });
 
+    // JADE/PUG based extensions
+    ["jade"].forEach((extension) => {
+        context.subscriptions.push(provideCompletionItemsGenerator(extension, /class=["|']([\w- ]*$)/));
+        context.subscriptions.push(
+            provideCompletionItemsGenerator(extension, /^(?:\s*)(?:(\S*?\(?(\S*\s+\S*)?\)?)?)?\.([\w-.]*)$/, "", "." ),
+        );
+    });
+
     // CSS based extensions
     ["css", "sass", "scss"].forEach((extension) => {
         // Support for Tailwind CSS
