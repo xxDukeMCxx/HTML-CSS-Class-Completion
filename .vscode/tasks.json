@@ -8,24 +8,29 @@
 
 // A task runner that calls a custom npm script that compiles the extension.
 {
-    "tasks": [{
-        "taskName": "npm",
-        // we want to run npm
-        "command": "npm",
-        // the command is a shell script
-        "isShellCommand": true,
-        // show the output window only if unrecognized errors occur.
-        "showOutput": "silent",
-        // we run the custom script "compile" as defined in package.json
-        "args": [
-            "run",
-            "compile",
-            "--loglevel",
-            "silent"
-        ],
-        // The tsc compiler is started in watching mode
-        "isBackground": true,
-        // use the standard tsc in watch mode problem matcher to find compile problems in the output.
-        "problemMatcher": "$tsc-watch"
-    }]
+    "tasks": [
+        {
+            "taskName": "NpmTask - Compile (TS)",
+            "command": "npm",
+            "isShellCommand": true,
+            "showOutput": "silent",
+            "args": [
+                "run",
+                "compile",
+                "--loglevel",
+                "silent"
+            ],
+            "isBackground": true,
+            "problemMatcher": "$tsc-watch",
+            "auto": true
+        },
+        {
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "option": "watch",
+            "problemMatcher": [
+                "$tsc-watch"
+            ]
+        }
+    ]
 }

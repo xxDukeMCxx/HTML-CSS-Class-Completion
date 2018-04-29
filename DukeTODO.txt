@@ -1,0 +1,9 @@
+1) detect BLOCK in a tag to avoid completion in that position : https://pugjs.org/language/plain-text.html#block-in-a-tag
+
+2) detect Multiline Attribute to so completion in taht case : https://pugjs.org/language/attributes.html#multiline-attributes
+
+3) detect unbuffered AND MULTILINE unbeffered code : https://pugjs.org/language/code.html#unbuffered-code
+
+4) etc.
+
+PS : No detection of Javascript section in PUG file is part of VSCODE issue : https://github.com/Microsoft/vscode/issues/41366
